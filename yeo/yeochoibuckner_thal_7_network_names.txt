@@ -1,0 +1,10 @@
+1	medial occipital
+2	sensory motor
+3	task positive
+4	salience
+5	inf fronto-temporal
+61	left fronto parietal
+62	right fronto parietal
+7	default mode	
+7101	left thal
+7102	right thal
