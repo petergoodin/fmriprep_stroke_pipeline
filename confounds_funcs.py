@@ -415,9 +415,11 @@ def epi_parcellation(epi_fn, parc_fn, parc_ids_fn, atlas_name = 'aal'):
     out_fn_stem = '{}{}'.format(out_fn_prefix, out_fn_suffix)
 
     parc_vox = {}
-            
-    with open(parc_ids_fn) as infile:
-    parc_ids = [line.strip().lower() for line in infile]
+
+    parc_ids = []
+    with open(parc_ids_fn) as ids:
+        for line in ids:
+            parc_ids.append(line[:-1].lower()) #Remove newline
 
     hdr = nb.load(epi_fn)
     epi_data = hdr.get_fdata()
