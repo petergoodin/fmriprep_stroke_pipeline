@@ -467,10 +467,8 @@ def parc_lesion_overlap(parc_fn, lesion_fn, parc_ids_fn, atlas_name = 'aal'):
     out_fn_suffix = 'atlas-{}_desc-lesion_damage.tsv'.format(atlas_name)
     out_fn = '{}{}'.format(out_fn_prefix, out_fn_suffix)
 
-    parc_ids = []
-    with open(parc_ids_fn) as ids:
-        for line in ids:
-            parc_ids.append(line[:-1].lower()) #Remove newline
+    with open(parc_ids_fn) as infile:
+    parc_ids = [line.strip().lower() for line in infile]
 
     parc = nb.load(parc_fn).get_fdata()
     parc_vals = np.unique(parc)[1:].astype(int)
